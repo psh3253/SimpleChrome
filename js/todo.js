@@ -2,7 +2,7 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
-const TODOS_KEY = "todos"
+const TODOS_KEY = "todos";
 
 let toDos = [];
 
@@ -17,11 +17,11 @@ function deleteToDo(event) {
     saveToDos();
 }
 
-function paintToDo(newToDoObject) {
+function paintToDo(newToDo) {
     const li = document.createElement("li");
-    li.id = newToDoObject.id;
+    li.id = newToDo.id;
     const span = document.createElement("span");
-    span.innerText = newToDoObject.text;
+    span.innerText = newToDo.text;
     const button = document.createElement("button");
     button.innerText = "삭제";
     button.addEventListener("click", deleteToDo);
@@ -37,7 +37,7 @@ function onToDoSubmit(event) {
     const newToDoObject = {
         id: Date.now(),
         text: newToDo
-    }
+    };
     toDos.push(newToDoObject);
     paintToDo(newToDoObject);
     saveToDos();
